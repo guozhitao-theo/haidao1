@@ -1,0 +1,39 @@
+body{
+    padding-left:10px 
+}
+.Reminder{
+    padding-left: 20px;
+    border-bottom: 1px solid #e2e2e2;
+    padding-bottom: 10px;
+}
+.query-box{
+    line-height: 36px;
+    width: 31%;
+}
+.Reminder-title{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background: #fff;
+    padding: 5px 30px;
+    border-radius:6px; 
+    border: 1px solid #e2e2e2;
+}
+
+.data-option{
+    width: 302px;
+    border: 1px solid #e2e2e2;
+    border-radius: 6px;
+}
+.data-option li{
+    float: left;
+    padding:5px 25px;
+    border-right: 1px solid #e2e2e2;
+}
+.data-option li:hover{
+    background: blueviolet;
+    color: #fff;
+    border-radius: 6px;
+}
+.data-option li a{
+    
+}
