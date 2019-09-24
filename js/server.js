@@ -4,7 +4,7 @@ let mysql = require('mysql')
 
 // 创建一个数据库链接
 let dbConnect = mysql.createConnection({
-    host:"127.0.0.1",
+    host:"192.168.97.251~",
     user: "root",
     password: "root",
     port:3306,

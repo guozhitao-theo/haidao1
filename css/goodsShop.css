@@ -37,3 +37,55 @@ body{
 .data-option li a{
     
 }
+.shops-goods-title,.shops-goods-content{
+    font-size: 0;
+}
+.shops-goods-title div{
+    font-size: 16px;
+    display: inline-block;
+    height: 42px ;
+    border:1px solid #e2e2e2;
+    line-height: 40px;
+}
+.shops-goods-content div{
+    font-size: 16px;
+    display: inline-block;
+    height: 82px ;
+    border:1px solid #e2e2e2;
+    line-height: 80px;
+}
+.shops-goods-title div input,.shops-goods-content div input{
+    vertical-align: -3px;
+}
+.goods-num-title,.goods-num{
+    width:100px;
+    text-align: center;
+}
+.goods-name-title,.goods-name{
+    width: 200px;
+    text-align: center;
+}
+.goods-classify-title,.goods-classify{
+    width: 250px;
+    text-align: center;   
+}
+.goods-price-title,.goods-price{
+    width: 100px;
+    text-align: center;
+}
+.goods-stock-title,.goods-stock{
+    width: 100px;
+    text-align: center;
+}
+.goods-order-title,.goods-order{
+    width: 100px;
+    text-align: center;
+}
+.goods-up-title,.goods-up{
+    width: 100px;
+    text-align: center;
+}
+.goods-option-title,.goods-option{
+    width: 150px;
+    text-align: center;
+}
