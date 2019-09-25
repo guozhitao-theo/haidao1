@@ -53,19 +53,41 @@
             <div class="goods-up-title">上架</div>
             <div class="goods-option-title">操作</div>
         </li>
-        <li class="shops-goods-content">
-            <div>
-                <input type="checkbox">
-            </div>
-            <div class="goods-num">1 </div>
-            <div class="goods-name">手机端快捷酒店</div>
-            <div class="goods-classify">穷啊</div>
-            <div class="goods-price">￥12.5</div>
-            <div class="goods-stock">10</div>
-            <div class="goods-order">1</div>
-            <div class="goods-up">对</div>
-            <div class="goods-option"><a>修改</a> <a>删除</a></div>
-        </li>
+        <div class="shops-goods-box">
+            <!-- <li class="shops-goods-content">
+                <div>
+                    <input type="checkbox">
+                </div>
+                <div class="goods-num">1 </div>
+                <div class="goods-name text-hidden">手机端快捷酒店</div>
+                <div class="goods-classify">穷啊</div>
+                <div class="goods-price">￥12.5</div>
+                <div class="goods-stock">10</div>
+                <div class="goods-order">1</div>
+                <div class="goods-up">对</div>
+                <div class="goods-option"><a>修改</a> <a>删除</a></div>
+            </li> -->
+        </div>
+        
+        <script type="text/html" id="tablist">
+            {{each data as item}}
+                <li class="shops-goods-content">
+                    <div>
+                        <input type="checkbox">
+                    </div>
+                    <div class="goods-num">{{item.id}}</div>
+                    <div class="goods-name">{{item.name}}</div>
+                    <div class="goods-classify text-hidden">{{item.text}}</div>
+                    <div class="goods-price">￥{{item.price}}</div>
+                    <div class="goods-stock">{{item.stock}}</div>
+                    <div class="goods-order">1</div>
+                    <div class="goods-up">对</div>
+                    <div class="goods-option"><a>修改</a> <a>删除</a></div>
+                </li>
+            {{/each}}
+            
+            
+        </script>
         
         
 
@@ -74,4 +96,5 @@
 </body>
 <script src="./js/jquery-2.1.0.js"></script>
 <script src="js/goodsShop.js"></script>
+<script src="./js/template.js"></script>
 </html>
