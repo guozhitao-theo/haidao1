@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/public.css">
     <link rel= "stylesheet" href="./css/goodsShop.css">
@@ -32,7 +33,7 @@
     </div>
 
     <ul class="data-option clearfix">
-        <li><a>添加</a></li>
+        <li data-toggle="modal" data-target=".modal-add"><a >添加</a></li>
         <li><a>删除</a></li>
         <li><a>导入</a></li>
         <li><a>导出</a></li>
@@ -71,13 +72,14 @@
         
         <script type="text/html" id="tablist">
             {{each data as item}}
+           
                 <li class="shops-goods-content">
                     <div>
                         <input type="checkbox">
                     </div>
                     <div class="goods-num">{{item.id}}</div>
-                    <div class="goods-name">{{item.name}}</div>
-                    <div class="goods-classify text-hidden">{{item.text}}</div>
+                    <div class="goods-name text-hidden"><img src="{{imgurl + item.img}}" width="30" height="50" alt="">{{item.title}}</div>
+                    <div class="goods-classify text-hidden">{{item.dtail}}</div>
                     <div class="goods-price">￥{{item.price}}</div>
                     <div class="goods-stock">{{item.stock}}</div>
                     <div class="goods-order">1</div>
@@ -89,12 +91,111 @@
             
         </script>
         
+        <!--模态框 -->
+        <div class="modal modal-add">
+            <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!-- 关闭按钮 -->
+                            <button class="close" data-dismiss="modal" aria-label="Close">X</button>
         
+                            <!-- 标题 -->
+                            <h4>添加商品分类</h4>
+                        </div>
+                        <div class="modal-body">
+                            <!-- 水平排列的表单 -->
+                            <form class="form-horizontal goods-add">
+                                <!-- 商品序号 -->
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-xs-2  constrol-label">商品序号</label>
+                                    <div class="col-sm-10 col-xs-8">
+                                        <input name="number" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <!-- 商品名称 -->
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-xs-2 constrol-label">商品名称</label>
+                                    <div class="col-sm-10 col-xs-8">
+                                        <input name="name" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <!-- 商品价格 -->
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-xs-2  constrol-label">商品价格</label>
+                                    <div class="col-sm-10 col-xs-8">
+                                        <input name="price" class="form-control" type="number">
+                                    </div>
+                                </div>
+                                <!-- 商品图片 -->
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-xs-2   constrol-label">商品图片</label>
+                                    <div class="col-sm-10 col-xs-8">
+                                        <input name="img" class="form-control" type="file" accept="image/*" >
+                                    </div>
+                                </div>
+                                <!-- 商品品牌 -->
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-xs-2  constrol-label">商品品牌</label>
+                                    <div class="col-sm-10 col-xs-8">
+                                        <input  class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <!-- 商品库存 -->
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-xs-2  constrol-label">商品库存</label>
+                                    <div class="col-sm-10 col-xs-8">
+                                        <input class="form-control" type="number">
+                                    </div>
+                                </div>
+                                <!-- 商品分类 -->
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-xs-2  constrol-label">商品分类</label>
+                                    <div class="col-sm-10 col-xs-8">
+                                        <select class="form-control goodsClass">
+                                            <option value="">1</option>
+                                            <option value="">2</option>
+                                            <option value="">3</option>
+                                            <option value="">4</option>
+                                        </select>
+                                    </div>
+                                </div>
+        
+                                <!-- 商品详情 -->
+                                <div class="form-group">
+                                    <label class="col-sm-2 constrol-label">商品详情</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+        
+                                <!-- 商品规格 -->
+                                <div class="form-group">
+                                    <label class="col-sm-2 constrol-label">商品规格</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+        
+        
+        
+        
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <a class="btn btn-default" data-dismiss="modal">关闭</a>
+                            <a class="btn btn-primary goods-add-btn">添加商品 </a>
+                        </div>
+        
+                    </div>
+            </div>
+           
 
+        </div>
 
     </ul>
 </body>
 <script src="./js/jquery-2.1.0.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
 <script src="js/goodsShop.js"></script>
 <script src="./js/template.js"></script>
 </html>

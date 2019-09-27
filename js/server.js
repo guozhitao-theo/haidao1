@@ -1,6 +1,9 @@
 // 引入模块
 let express = require('express')
 let mysql = require('mysql')
+let path = require('path')
+let formidable = require("formidable")
+
 
 // 创建一个数据库链接
 let dbConnect = mysql.createConnection({
@@ -8,13 +11,18 @@ let dbConnect = mysql.createConnection({
     user: "root",
     password: "root",
     port:3306,
-    database:"goods"
+    database:"newshop"
 })
 // 链接数据库
 dbConnect.connect()
 
 // 执行express方法
 let app = express()
+
+app.use(express.static(path.join(__dirname,'../upfile')))
+
+
+
 app.all("*",function(req,res,nextfunction){
     res.header("Access-Control-Allow-Origin","*")
     res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
@@ -26,19 +34,63 @@ app.all("*",function(req,res,nextfunction){
 app.get("/index",function(req,res){  
     // 数据库查询
     
-    dbConnect.query("select * from shop",function(err,data){
+    dbConnect.query("select * from goods",function(err,data){
         // data为一个数组,内容为对象
-        for(let item of data){
-            console.log(data)
+        // for(let item of data){
+        //     console.log(item.title)
+        // }
+        if(!err){
+            res.json({
+                status:200,
+                data:data})  
+        }else{
+            res.json({
+                status:200,
+                data:{}
+            })
         }
-        res.json({data})  
         
+    // console.log(data)
     })
     
-
-
         
-    
 })
+
+// 监听商品类型get 地址
+app.get("/class",function(req,res){
+    // 数据查询
+    dbConnect.query("select * from class",function(err,data){
+        if(!err){
+            res.json({
+                status:200,
+                data:data})
+        }else{
+            res.json({
+                status:500,
+                data:{}
+            })
+        }  
+    })
+})
+
+
+// 监听获得前端提交的数据
+app.post("/addgoods",function(req,res){
+
+    let form = new formidable.IncomingForm();
+
+    // 设置图片上传的地址
+    form.uploadDir = path.join(__dirname,'../upfile')
+    form.keepExtensions  = true
+    // 解析参数
+    form.parse(req,function(err,fields,files){
+        // fields 除了上传图片的其他文件
+        // files 上传的文件
+        console.log(files)
+    })
+    res.json({
+        status:200})
+})
+
 // 监听端口
 app.listen(3000)

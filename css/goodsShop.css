@@ -64,6 +64,10 @@ body{
 .goods-name-title,.goods-name{
     width: 200px;
     text-align: center;
+   
+}
+.goods-name{
+    vertical-align: -35px;
 }
 .goods-classify-title,.goods-classify{
     width: 250px;
