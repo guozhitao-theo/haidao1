@@ -79,6 +79,7 @@ app.post("/addgoods",function(req,res){
 
     let form = new formidable.IncomingForm();
 
+
     // 设置图片上传的地址
     form.uploadDir = path.join(__dirname,'../upfile')
     // 是否保留文件的后缀名
@@ -116,6 +117,7 @@ app.post("/addgoods",function(req,res){
     })
     
 })
+
 
 // 监听端口
 console.log(3000)
