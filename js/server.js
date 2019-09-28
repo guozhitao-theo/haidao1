@@ -9,7 +9,7 @@ let formidable = require("formidable")
 let dbConnect = mysql.createConnection({
     host:"127.0.0.1",
     user: "root",
-    password: "root",
+    password: "12345678",
     port:3306,
     database:"newshop"
 })
@@ -81,16 +81,42 @@ app.post("/addgoods",function(req,res){
 
     // 设置图片上传的地址
     form.uploadDir = path.join(__dirname,'../upfile')
+    // 是否保留文件的后缀名
     form.keepExtensions  = true
     // 解析参数
     form.parse(req,function(err,fields,files){
         // fields 除了上传图片的其他文件
         // files 上传的文件
-        console.log(files)
+        
+        // console.log(files.img.path)
+        // 获取上传的图片的额路径的文件名
+        let imgbase =  path.parse(files.img.path).base
+
+        // 将前端的文件写入数据库
+
+        // 先定义一个数据库语句
+        let sql = "insert into goods(id,title,price,brand,stock,class,detail,spu,img) values(?) "
+        // 将前台的数据存为数组
+        console.log(fields)
+        let data = [fields.number,fields.name,fields.price,fields.brand,fields.stock,fields.class,fields.detials,fields.spu,imgbase]
+        console.log(data)
+        dbConnect.query(sql,[data],function(err,data){
+            
+            if(!err){
+                res.json({
+                    status:200,
+                    data:''
+                })
+            }
+            else{
+                console.log(err)
+            }
+        })
+
     })
-    res.json({
-        status:200})
+    
 })
 
 // 监听端口
+console.log(3000)
 app.listen(3000)

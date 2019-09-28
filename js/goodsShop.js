@@ -79,25 +79,6 @@ $(".goods-add-btn").click(function(){
     })
 })
 
-// 表单提交数据formdata
-// formdata提交的数据必须是js对象
-
-// 获取需要提交的表单
-let form = document.querySelector(".goods-add")
-let formdata = new FormData(form)
-$.ajax({
-    url:imgurl+"addgoods",
-    type:"post",
-    data:formdata,
-    datatype:"json",
-    contentType:false,
-    processData:false,
-    success:function(res){
-
-    }
-})
-
-
 
 
 
