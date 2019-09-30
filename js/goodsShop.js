@@ -75,6 +75,10 @@ $(".goods-add-btn").click(function(){
         processData:false,
         success:function(res){
             console.log(res)
+            if(status == 200){
+                $(".modal-add").modal("hide")
+            }
+            
         }
     })
 })
